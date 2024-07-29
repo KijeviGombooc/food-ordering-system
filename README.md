@@ -40,6 +40,8 @@ By default, the database is empty and needs to applied some SQL script. This sch
 
 The script will be written to the location: [./sql/generated/hibernate_schema.sql](./sql/generated/hibernate_schema.sql)
 
+The last version of this script can be found at [./sql/hibernate_schema.sql](./sql/hibernate_schema.sql)
+
 ## Data of database
 
 After applying the above mentioned schema, the database needs to be populated. AN example data can be found at [./sql/insert_data.sql](./sql/insert_data.sql)
