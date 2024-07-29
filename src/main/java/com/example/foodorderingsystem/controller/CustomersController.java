@@ -27,17 +27,17 @@ public class CustomersController {
 	}
 
 	@GetMapping("/restaurants/{id}")
-	public RestaurantDetailedResponse getRestaurant(@PathVariable Long id) {
+	public RestaurantDetailedResponse getRestaurant(@PathVariable Long id) throws Exception {
 		return customersService.getRestaurant(id);
 	}
 
 	@GetMapping("/restaurants/{id}/menu")
-	public List<ItemResponse> getRestaurantMenu(@PathVariable Long id) {
+	public List<ItemResponse> getRestaurantMenu(@PathVariable Long id) throws Exception {
 		return customersService.getRestaurantMenu(id);
 	}
 
 	@PostMapping("/orders")
-	public void postOrder(@RequestBody OrderRequest orderRequest) {
+	public void postOrder(@RequestBody OrderRequest orderRequest) throws Exception {
 		customersService.postOrder(orderRequest);
 	}
 }
