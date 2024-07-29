@@ -25,12 +25,12 @@ public class RestaurantsController {
 	}
 
 	@PatchMapping("/orders/{id}")
-	public void patchOrder(@PathVariable Long id, @RequestBody OrderStatusRequest orderStatusRequest) {
+	public void patchOrder(@PathVariable Long id, @RequestBody OrderStatusRequest orderStatusRequest) throws Exception {
 		restaurantsService.patchOrder(id, orderStatusRequest);
 	}
 
 	@GetMapping("/orders/{id}")
-	public OrderResponse getOrder(@PathVariable Long id) {
+	public OrderResponse getOrder(@PathVariable Long id) throws Exception {
 		return restaurantsService.getOrder(id);
 	}
 }

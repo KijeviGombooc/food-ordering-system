@@ -6,7 +6,10 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 import com.example.foodorderingsystem.dto.ItemResponse;
+import com.example.foodorderingsystem.dto.OrderItemResponse;
 import com.example.foodorderingsystem.dto.OrderRequest;
+import com.example.foodorderingsystem.dto.OrderResponse;
+import com.example.foodorderingsystem.dto.OrderStatusDto;
 import com.example.foodorderingsystem.dto.RestaurantDetailedResponse;
 import com.example.foodorderingsystem.dto.RestaurantResponse;
 import com.example.foodorderingsystem.entity.Customer;
@@ -47,5 +50,19 @@ public class EntityToDto {
 		order.setStatus(OrderStatus.RECEIVED);
 		order.setItems(orderItems);
 		return order;
+	}
+
+	public OrderResponse orderToDto(Order order) {
+		return new OrderResponse(
+			order.getId(),
+			order.getCustomer().getId(),
+			order.getRestaurant().getId(),
+			OrderStatusDto.valueOf(order.getStatus().name()),
+			order.getItems().stream().map(this::orderItemToDto).toList()
+		);
+	}
+
+	public OrderItemResponse orderItemToDto(OrderItem orderItem) {
+		return new OrderItemResponse(orderItem.getId(), orderItem.getQuantity(), orderItem.getSpecialInstructions());
 	}
 }
