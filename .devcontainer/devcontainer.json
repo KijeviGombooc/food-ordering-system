@@ -1,0 +1,23 @@
+{
+	"name": "food-ordering-system",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"options": [
+			"--progress=plain"
+		]
+	},
+	"forwardPorts": [
+		8080
+	],
+	"postCreateCommand": "git config --global --add safe.directory /workspaces/food-ordering-system",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"mhutchie.git-graph",
+				"vscjava.vscode-java-pack",
+				"vmware.vscode-boot-dev-pack"
+			]
+		}
+	}
+}
